@@ -1,0 +1,32 @@
+<h2 mat-dialog-title class="title">Dados de {{ username }}</h2>
+<div mat-dialog-content class="container1">
+  <div  class="container2">
+
+    <div class="box1">
+      <img [src]="user?.avatar_url">
+      <div class="name_location">
+        <a [href]="user?.html_url" target="_blank">{{ user?.name }}</a>
+        <p class="location">Localização: {{ user?.location }}</p>
+      </div>
+      <p class="bio">{{ user?.bio }}</p>
+    </div>
+
+    <div class="numeros">
+      <p>Número de repositórios: {{ user?.public_repos }}</p>
+      <p>Seguidores: {{ user?.followers }}</p>
+      <p>Seguindo: {{ user?.following }}</p>
+      <p>Data da criação: {{ user?.created_at | date }}</p>
+    </div>
+
+  </div>
+
+  <div>
+    <h3>Repositórios</h3>
+    <div class="repos" *ngFor="let c of userRepos">
+      <a [href]="c.html_url">{{ c.name }}</a>
+      <p>Linguagem: {{ c.language }}</p>
+      <p>Estrelas: {{ c.stargazers_count }}</p>
+    </div>
+  </div>
+
+</div>
